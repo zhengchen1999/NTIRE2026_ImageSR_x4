@@ -1,70 +1,113 @@
-# [NTIRE 2026 Challenge on Image Super-Resolution (x4)](https://cvlai.net/ntire/2026/) @ [CVPR 2026](https://cvpr.thecvf.com/)
+# [NTIRE 2026 Challenge on Image Super-Resolution (×4)](https://cvlai.net/ntire/2026/) @ [CVPR 2026](https://cvpr.thecvf.com/)
 
+[![ntire](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Fzhengchen1999%2FNTIRE2026_ImageSR_x4%2Fmain%2Ffigs%2Fdiamond_badge.json)](https://www.cvlai.net/ntire/2026/)
 [![page](https://img.shields.io/badge/Project-Page-blue?logo=github&logoSvg)](https://ntire-sr.github.io/2026)
-
+[![CVPRW](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Fzhengchen1999%2FNTIRE2026_ImageSR_x4%2Fmain%2Ffigs%2Fcvf_badge.json)](https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Chen_NTIRE_2026_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2026_paper.html)
+[![arXiv](https://img.shields.io/badge/Report-arXiv-red?logo=arxiv&logoSvg)](https://arxiv.org/abs/2504.xxxxx)
+[![supp](https://img.shields.io/badge/Supplementary-Paper-orange.svg)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4/releases/download/Supp/NTIRE.2026.Image.Super.Resolution.x4.Supplementary.pdf)
 [![visitors](https://visitor-badge.laobi.icu/badge?page_id=zhengchen1999.NTIRE2026_ImageSR_x4&right_color=violet)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4)
 [![GitHub Stars](https://img.shields.io/github/stars/zhengchen1999/NTIRE2026_ImageSR_x4?style=social)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4)
 
-## Notice
+## About the Challenge
 
-All submitted code must follow the format defined in this repository. Submissions that do not follow the required format may be rejected during the final evaluation stage.
+The challenge is part of the 11th NTIRE Workshop at CVPR 2026, which targets the classical bicubic down‑sampling setting. Participants should recover a high‑resolution image from a single low‑resolution input that is 4 × smaller.
 
-After the challenge ends, we will release all submitted code as open-source for reproducibility. If you would like your model to remain confidential, please contact the organizers in advance.
+**Two evaluation tracks.**
 
-## How to test the baseline model?
+1. **Restoration Track:** ranks methods by pixel‑wise accuracy (PSNR).
+2. **Perceptual Track:** ranks by a perceptual score that blends several quality metrics: LPIPS, DISTS, NIQE, ManIQA, MUSIQ, and CLIP-IQA.
+
+The dual‑track design encourages solutions that balance fidelity and visual realism, providing a unified benchmark for image super‑resolution models.
+
+## Challenge results
+
+- **31 valid submissions** are ranked.
+- **Evaluation set:** all scores are measured on the **DIV2K‑test (100 images)**.
+- **Track 1 – Restoration:** Ranked by PSNR (Y channel, 4‑px shave).
+- **Track 2 – Perceptual:** Ranked by a combined score: $\text{Score} = \left(1 - \text{LPIPS}\right) + \left(1 - \text{DISTS}\right) + \text{CLIPIQA} + \text{MANIQA} + \frac{\text{MUSIQ}}{100} + \max\left(0, \frac{10 - \text{NIQE}}{10}\right)$.
+- **Overall order**: ranking mainly depends on the higher ranking among the two tracks and the average value of the rankings in the two tracks.
+
+![](./figs/results.png)
+
+## Certificates
+
+**Track 1 – Restoration**
+The top three teams by PSNR have received **NTIRE 2026 Image SR (×4) Restoration‑Track certificates**:  
+
+1. SamsungAICamera  
+2. I2WM&JNU  
+3. SR-Strugglers  
+
+**Track 2 – Perceptual**
+The top three teams by Perceptual Score have received **NTIRE 2026 Image SR (×4) Perceptual‑Track certificates**:  
+
+1. SamsungAICamera  
+2. VEPG  
+3. HONORAICamera  
+
+All certificates can be downloaded from [Google Drive](https://drive.google.com/file/d/xxxxx/view?usp=sharing).
+
+## About this repository
+
+This repository summarizes the solutions submitted by the participants during the challenge. The model script and the pre-trained weight parameters are provided in the [models](./models) and [model_zoo](./model_zoo) folders. Each team is assigned a number according to the submission time of the solution. You can find the correspondence between the number and team in [test.select_model](./test.py). Some participants would like to keep their models confidential. Thus, those models are not included in this repository.
+
+## How to test the model?
 
 1. `git clone https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4.git`
+2. Download the model weights from:
 
-2. Select the model you would like to test:
+    - [Baidu Pan](https://pan.baidu.com/s/xxxxxx?pwd=SRSR) (validation code: **SRSR**)
+    - [Google Drive](https://drive.google.com/drive/folders/xxxxx?usp=drive_link)
 
-   ```bash
-   CUDA_VISIBLE_DEVICES=0 python test.py --valid_dir [path to val data dir] --test_dir [path to test data dir] --save_dir [path to your save dir] --model_id 0
-   ```
+    Put the downloaded weights in the `./model_zoo` folder.
+3. Select the model you would like to test:
+    ```bash
+    CUDA_VISIBLE_DEVICES=0 python test.py --valid_dir [path to val data dir] --test_dir [path to test data dir] --save_dir [path to your save dir] --model_id 0
+    ```
+    - You can use either `--valid_dir`, or `--test_dir`, or both of them. Be sure the change the directories `--valid_dir`/`--test_dir` and `--save_dir`.
+    - We provide a baseline (team00): DAT (default). Switch models (default is DAT) through commenting the code in [test.py](./test.py#L19).
+4. We also provide the output of each team from:
 
-   - You can use either `--valid_dir`, or `--test_dir`, or both of them. Be sure the change the directories `--valid_dir`/`--test_dir` and `--save_dir`.
-   - We provide a baseline (team00): DAT (default). Switch models (default is DAT) through commenting the code in [test.py](./test.py#L19).
+    - [Baidu Pan](https://pan.baidu.com/s/xxxxxx?pwd=SRSR) (validation code: **SRSR**)
+    - [Google Drive](https://drive.google.com/drive/folders/xxxxx?usp=drive_link)
 
-## How to add your model to this baseline?
+    You can directly download the output of each team and evaluate the model using the provided script.
+5. Some methods cannot be integrated into our codebase. We provide their instructions in the corresponding folder. If you still fail to test the model, please contact the team leaders. Their contact information is as follows:
 
-> [!IMPORTANT]
->
-> **🚨 Submissions that do not follow the official format will be rejected.**
-
-1. Register your team in the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1sEliBQf27EEN2bzQUO-XZaTdVG8SYWNouKSHqRYY9mE/edit?usp=sharing) and get your team ID.
-2. Put your the code of your model in folder:  `./models/[Your_Team_ID]_[Your_Model_Name]`
-
-   - Please zero pad [Your_Team_ID] into two digits: e.g. 00, 01, 02
-3. Put the pretrained model in folder: `./model_zoo/[Your_Team_ID]_[Your_Model_Name]`
-
-   - Please zero pad [Your_Team_ID] into two digits: e.g. 00, 01, 02
-   - Note: Please provide a download link for the pretrained model, if the file size exceeds **100 MB**. Put the link in `./model_zoo/[Your_Team_ID]_[Your_Model_Name]/[Your_Team_ID]_[Your_Model_Name].txt`: e.g. [team00_dat.txt](./model_zoo/team00_dat/team00_dat.txt)
-4. Add your model to the model loader `test.py` as follows:
-
-   - Edit the `else` to `elif` in [test.py](./test.py#L24), and then you can add your own model with model id.
-
-   - `model_func` **must** be a function, which accept **4 params**. 
-
-     - `model_dir`: the pretrained model. Participants are expected to save their pretrained model in `./model_zoo/` with in a folder named `[Your_Team_ID]_[Your_Model_Name]` (e.g., team00_dat). 
-
-     - `input_path`: a folder contains several images in PNG format. 
-
-     - `output_path`: a folder contains restored images in PNG format. Please follow the section Folder Structure. 
-
-     - `device`: computation device.
-5. Send us the command to download your code, e.g,
-
-   - `git clone [Your repository link]`
-   - We will add your code and model checkpoint to the repository after the challenge.
-
-> [!TIP]
->
-> Your model code does not need to be fully refactored to fit this repository. 
-> Instead, you may add a lightweight external interface (e.g., `models/team00_DAT/io.py`) that wraps your existing code, while keeping the original implementation unchanged.
->
-> Refer to previous NTIRE challenge implementations for examples: 
-> https://github.com/zhengchen1999/NTIRE2025_ImageSR_x4/tree/main/models
-
-
+| Index |       Team      |            Leader            |              Email              |
+|:-----:|:---------------:|:----------------------------:|:-------------------------------:|
+|   1   | SamsungAICamera |         Zheng Xie            |     zheng888.xie@samsung.com    |
+|   2   |    I2WM&JNU     |         Weijun Yuan          |   yweijun@stu2022.jnu.edu.cn    |
+|   3   |  SR-Strugglers  |        Shengwei Wang         |    wangshw35@mail2.sysu.edu.cn  |
+|   4   |     IK-Lab      |         Saeed Ahmad          |    saeedahmad@iklab.ai          |
+|   5   |    FengFans     |          Wei Zhou            |       weichow@u.nus.edu         |
+|   6   |      SUAT       |         Yucong Hong          |  SUAT24000175@stu.suat-sz.edu.cn|
+|   7   |     Earth4D     |         Tongyao Mu           |     muty.woodnr@gmail.com       |
+|   8   |     AxeraAI     |       Xiaoping Peng          |  pengxiaoping@axera-tech.com    |
+|   9   |   cialloworld   |       Xiaoyun Cheng          |  inmtiansuo114514@163.com       |
+|  10   |     VAI-GM      |        Nihal Kumar           |   nihkumar@cs.stonybrook.edu    |
+|  11   |      scrlb      |       Surya Vashisth         |   prateekshaily820@gmail.com    |
+|  12   |   APRIL-AIGC    |         Shijun Shi           |      ssj180123@gmail.com        |
+|  13   |     AH-SNU      |         Amitesh M            |   amiteshmahendran@gmail.com    |
+|  14   |     ACVLAB      |       Chia-Ming Lee          |    zuw408421476@gmail.com       |
+|  15   |     GLASSv2     |        Nishalini K           | nishalinikarthik17@gmail.com    |
+|  16   |       PSU       |        Anas M. Ali           |     aaboessa@psu.edu.sa         |
+|  17   |     JNU620      |       Shuling Zheng          | zhengshuling@stu2025.jnu.edu.cn |
+|  18   |     AIMLAB      |       Zhipeng Zhang          | zhangzhipeng22@mails.ucas.ac.cn |
+|  19   |       NTR       |         Jiachen Tu           |       jtu9@illinois.edu         |
+|  20   |    NoReject     |          Yuqi Li             |    yuqili010602@gmail.com       |
+|  21   |  KLETech-CEVI   |      Nikhil Akalwadi         |  nikhil.akalwadi@kletech.ac.in  |
+|  22   |    SFVision     |         Yuwen Pan            |     panyw@mail.ustc.edu.cn      |
+|  23   |   APRIL-AIGC    |         Shijun Shi           |      ssj180123@gmail.com        |
+|  24   | HONORAICamera   |        Yingsi Chen           |    chenyingsi@honor.com         |
+|  25   |      VEPG       |       Fengkai Zhang          |   fengkaizhang@njust.edu.cn     |
+|  26   |  RandomSeed42   |         Kainan Yan           | yankainan24@mails.ucas.ac.cn    |
+|  27   |   TranssionAI   |         Leilei Cao           |   leilei.cao@transsion.com      |
+|  28   |      BVISR      |        Yuxuan Jiang          |      dd22654@bristol.ac.uk      |
+|  29   |    MIPLUSCV     |         Yifei Chen           |       cyf9495@gmail.com         |
+|  30   |       AIT       |          Yang Ji             |      jiyang@kunbyte.com         |
+|  31   |     CIPLAB      |        Jaeseong Lee          |     jacklee95@naver.com         |
+|  32   |  Anant_SVNIT    |       Nikhil Pathak          |   u24ec012@eced.svnit.ac.in     |
 
 ## How to eval images using IQA metrics?
 
@@ -75,7 +118,6 @@ conda create -n NTIRE-SR python=3.8
 conda activate NTIRE-SR
 pip install -r requirements.txt
 ```
-
 
 ### Folder Structure
 
@@ -122,16 +164,50 @@ $$
 \text{Score} = \left(1 - \text{LPIPS}\right) + \left(1 - \text{DISTS}\right) + \text{CLIPIQA} + \text{MANIQA} + \frac{\text{MUSIQ}}{100} + \max\left(0, \frac{10 - \text{NIQE}}{10}\right).
 $$
 
-The score is calculated on the averaged IQA scores. 
+The score is calculated on the averaged IQA scores.
 
-## NTIRE Image SR ×4 Challenge Series
+## NTIRE Image SR ×4 Challenge Series
 
 Code repositories and accompanying technical report PDFs for each edition:  
 
-- **NTIRE 2025**: [CODE](https://github.com/zhengchen1999/NTIRE2025_ImageSR_x4) | [PDF](https://arxiv.org/pdf/2504.14582)  
-- **NTIRE 2024**: [CODE](https://github.com/zhengchen1999/NTIRE2024_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Chen_NTIRE_2024_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2024_paper.pdf)  
-- **NTIRE 2023**: [CODE](https://github.com/zhengchen1999/NTIRE2023_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/papers/Zhang_NTIRE_2023_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2023_paper.pdf)
+- **NTIRE 2026**: [CODE](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4) | [PDF](https://arxiv.org/abs/2504.xxxxx)  
+- **NTIRE 2025**: [CODE](https://github.com/zhengchen1999/NTIRE2025_ImageSR_x4) | [PDF](https://arxiv.org/pdf/2504.14582)  
+- **NTIRE 2024**: [CODE](https://github.com/zhengchen1999/NTIRE2024_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Chen_NTIRE_2024_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2024_paper.pdf)  
+- **NTIRE 2023**: [CODE](https://github.com/zhengchen1999/NTIRE2023_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/papers/Zhang_NTIRE_2023_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2023_paper.pdf)
+
+## Citation
+
+If you find the code helpful in your research or work, please cite the following paper(s).
+
+```
+@inproceedings{ntire2023srx4,
+  title={NTIRE 2023 challenge on image super-resolution (x4): Methods and results},
+  author={Zhang, Yulun and Zhang, Kai and Chen, Zheng and Li, Yawei and Timofte, Radu and others},
+  booktitle={CVPRW},
+  year={2023}
+}
+
+@inproceedings{ntire2024srx4,
+  title={Ntire 2024 challenge on image super-resolution (x4): Methods and results},
+  author={Chen, Zheng and Wu, Zongwei and Zamfir, Eduard and Zhang, Kai and Zhang, Yulun and Timofte, Radu and others},
+  booktitle={CVPRW},
+  year={2024}
+}
+
+@inproceedings{ntire2025srx4,
+  title={NTIRE 2025 Challenge on Image Super-Resolution (x4): Methods and Results},
+  author={Chen, Zheng and Liu, Kai and Gong, Jue and Wang, Jingkai and Sun, Lei and Wu, Zongwei and Timofte, Radu and Zhang, Yulun and others},
+  booktitle={CVPRW},
+  year={2025}
+}
+
+@inproceedings{ntire2026srx4,
+  title={NTIRE 2026 Challenge on Image Super-Resolution (x4): Methods and Results},
+  author={Chen, Zheng and Liu, Kai and Wang, Jingkai and Yan, Xianglong and Li, Jianze and Zhang, Ziqing and Gong, Jue and Li, Jiatong and Sun, Lei and Liu, Xiaoyang and Timofte, Radu and Zhang, Yulun and others},
+  booktitle={CVPRW},
+  year={2026}
+}
+```
 
 ## License and Acknowledgement
-
 This code repository is release under [MIT License](LICENSE). 
