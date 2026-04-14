@@ -1,0 +1,12 @@
+{
+  "inference_root": "models/team06_AIT/ait_backend",
+  "pretrained_model_path": "model_zoo/team06_AIT/models/stable-diffusion-2-base",
+  "seesr_model_path": "model_zoo/team06_AIT/models/ablation_dt_only_static_s42_30000",
+  "ram_pretrained_path": "model_zoo/team06_AIT/models/ram_swin_large_14m.pth",
+  "use_degradation_token": true,
+  "use_dynamic_degradation_token": false,
+  "guidance_scale": 6.0,
+  "conditioning_scale": 0.9,
+  "num_inference_steps": 50,
+  "align_method": "adain"
+}

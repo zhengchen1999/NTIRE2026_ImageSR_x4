@@ -1,0 +1,59 @@
+# general settings
+name: test_ProCata_x4
+model_type: ProCataModel
+scale: 4
+num_gpu: 1
+manual_seed: 3407
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: DIV2K_valid
+    type: SingleImageDataset
+    dataroot_lq: datasets/DIV2K/DIV2K_test_LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+  # test_1:  # the 1st test dataset
+  #   name: DIV2K_valid
+  #   type: PairedImageDataset
+  #   dataroot_gt: datasets/DIV2K/DIV2K_valid_HR
+  #   dataroot_lq: datasets/DIV2K/DIV2K_valid_LR_bicubic/X4
+  #   filename_tmpl: '{}x4'
+  #   io_backend:
+  #     type: disk
+
+
+# network structures
+network_g:
+  type: ProCata
+  upscale: 4
+  # new options to match training network
+  zero_init: true
+  use_eca: true
+  use_dpa: True
+  eca_position: lrsa
+  use_layer_scale: true
+  layer_scale_init: !!float 1e-4
+  use_channel_se: true
+  se_reduction: 4
+
+# path
+path:
+  pretrain_network_g: /home/slimme/projects/NTIRE2026_ImageSR_x4-main/model_zoo/team03_ProCata/ProCata.pth
+  strict_load_g: true
+  results_root: results/ProCata
+
+# validation settings
+val:
+  save_img: true
+  suffix: ProCata  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr_pt
+      crop_border: 4
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim_pt
+      crop_border: 4
+      test_y_channel: true

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "balanced_restore",
+    "prompt": "Enhance the perceptual quality of the condition image while preserving the original composition, geometry, identity, and colors. Recover clean textures, sharp edges, and natural details without changing the scene."
+  },
+  {
+    "name": "detail_preserve",
+    "prompt": "Use the condition image as the structural reference and improve perceptual sharpness only. Restore fine details, micro-textures, and local contrast while keeping object shapes, layout, and content unchanged."
+  },
+  {
+    "name": "natural_cleanup",
+    "prompt": "Improve the image so it looks cleaner and more natural, using the condition image as the source content. Remove blur, ringing, and noisy artifacts, and produce crisp but realistic details with no hallucinated objects."
+  },
+  {
+    "name": "photo_real_sr",
+    "prompt": "Generate a high-quality restored version of the condition image with stronger perceptual fidelity. Preserve all original semantics and structure, and improve clarity, edge definition, texture realism, and overall visual cleanliness."
+  },
+  {
+    "name": "test_1",
+    "prompt": "Keep the exact same composition, colors, lighting, and content as the input image. Restore it into a clean, high-resolution x4 version with faithful details. Remove bicubic blur and ringing artifacts, recover crisp edges and fine textures without changing the scene."
+  },
+  {
+    "name": "test_2",
+    "prompt": "Maintain the same image content and color grading. Produce an x4 high-resolution restoration with very crisp micro-details and well-defined edges. Remove blur, ringing, and compression artifacts, and enhance fine texture clarity while staying photorealistic."
+  },
+  {
+    "name": "test_3",
+    "prompt": "Use the upscaled condition image as a strict reference. Perform only faithful x4 restoration refinement: reduce blur, ringing, aliasing, and compression artifacts, and recover natural fine details only where supported by the input. Keep the exact same scene layout, object shapes, colors, lighting, and semantics. Improve edge clarity and local texture realism without hallucinating new structures, oversharpening, or changing content."
+  },
+  {
+    "name": "test_4",
+    "prompt": "Treat the upscaled condition image as a locked reference and apply minimal restoration only. Correct blur, ringing, aliasing, and compression artifacts while preserving the exact geometry, object boundaries, colors, illumination, and local structures. Recover only subtle, evidence-consistent details and do not invent textures, patterns, edges, or content. The result should look slightly cleaner and more natural, not sharper than necessary."
+  },
+  {
+    "name": "test_5",
+    "prompt": "Use the upscaled condition image as the exact structural reference and produce a clean, photorealistic x4 restoration. Remove blur, ringing, noise, and compression artifacts, improve natural edge definition, and restore realistic fine textures while preserving the original composition, colors, lighting, and content. Keep the image visually clean and natural, avoiding halos, artificial patterns, and over-processed sharpening."
+  }
+]

@@ -1,0 +1,58 @@
+﻿# general settings
+name: test_GLASSv2_SRBase_x2
+model_type: GLASSv2Model
+scale: 4
+num_gpu: 1
+manual_seed: 10
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: DIV2K_valid
+    type: PairedImageDataset
+    dataroot_gt: /mnt/h/NTIRE 2026/Datasets/DIV2K_valid_HR/DIV2K_valid_HR
+    dataroot_lq: /mnt/h/NTIRE 2026/Datasets/DIV2K_valid_LR_bicubic_X4/DIV2K_valid_LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+
+
+network_g:
+  type: GLASSv2
+  upscale: 4
+  in_chans: 3
+  img_size: 64
+  img_range: 1.
+  embed_dim: 180
+  d_state: 16
+  depths: [6, 6, 6,6,6,6]
+  num_heads: [6,6,6,6,6,6]
+  window_size: 16
+  inner_rank: 64
+  num_tokens: 128
+  convffn_kernel_size: 5
+  mlp_ratio: 2.
+  upsampler: 'pixelshuffle'
+  resi_connection: '1conv'
+
+
+
+# path
+path:
+  pretrain_network_g: /mnt/h/GLASSv2/trained_models/11epochs/net_g_215000.pth
+  strict_load_g: true
+
+# validation settings
+val:
+  save_img: true  # whether to save predicted images
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 2
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 2
+      test_y_channel: true

@@ -1,0 +1,144 @@
+dataloader_train:
+  _target_: <class 'fastgen.datasets.custom.custom_dataloader.CustomSuperResolutionImageLoader'>
+  batch_size: '4'
+  batch_size_config:
+    '768': '4'
+    768x768: '4'
+  dataset_path: /data2/NTIRE26/NTIRE2026/SR/Team16/NTIRE2026_ImageSR_x4/models/team16_APRIL-AIGC/data/ntire_2026_sr_x4_clean_768.csv
+  degrade_resize_bak: 'True'
+  exact_resolutions:
+  - 768x768
+  realesrgan_prob: '0.1'
+  resolutions:
+  - '768'
+dataloader_val: null
+eval:
+  max_ckpt: '100000000'
+  min_ckpt: '0'
+  num_samples: '50000'
+  samples_dir: samples
+  save_images: 'False'
+log_config:
+  group: submit
+  name: sr_step_explore
+  project: submit_exp
+  wandb_credential: ./credentials/wandb_api.txt
+  wandb_mode: online
+model:
+  add_teacher_to_fsdp_dict: 'True'
+  cond_dropout_prob: '0.15'
+  cond_keys_no_dropout:
+  - image_latents
+  - image_latent_ids
+  ddp_find_unused_parameters: 'True'
+  device: cuda
+  enable_preprocessors: 'True'
+  fsdp_meta_init: 'False'
+  grad_scaler_enabled: 'False'
+  grad_scaler_growth_interval: '2000'
+  grad_scaler_init_scale: '65536.0'
+  guidance_scale: '2.0'
+  input_shape:
+  - '128'
+  - '-1'
+  - '-1'
+  load_student_weights: 'True'
+  net:
+    _target_: <class 'fastgen.networks.Flux2_klein.network.Flux2_klein'>
+    model_id: /data2/NTIRE26/NTIRE2026/SR/Team16/NTIRE2026_ImageSR_x4/model_zoo/team16_APRIL-AIGC/checkpoints/flux2_klein_base4b_srx4
+  net_optimizer:
+    _target_: <function get_optimizer at 0x7f97c211c280>
+    betas:
+    - '0.9'
+    - '0.999'
+    eps: 1e-08
+    fused: 'False'
+    lr: 1e-05
+    model: null
+    optim_type: adamw
+    weight_decay: '0.01'
+  net_scheduler:
+    _target_: <class 'fastgen.utils.lr_scheduler.LambdaLinearScheduler'>
+    cycle_lengths:
+    - '10000000000'
+    f_max:
+    - '1.0'
+    f_min:
+    - '1.0'
+    f_start:
+    - 1e-06
+    warm_up_steps:
+    - '0'
+  precision: bfloat16
+  precision_amp: null
+  precision_amp_enc: null
+  precision_amp_infer: null
+  pretrained_model_path: ''
+  pretrained_student_net_path: ''
+  sample_t_cfg:
+    log_t_df: '0.01'
+    max_t: '0.999'
+    min_t: '0.001'
+    shift: '5.0'
+    t_list: null
+    time_dist_type: uniform
+    train_p_mean: '-1.1'
+    train_p_std: '2.0'
+  skip_layers: null
+  student_sample_steps: '10'
+  student_sample_type: sde
+  teacher: null
+  use_ema: 'False'
+model_class:
+  _target_: <class 'fastgen.methods.fine_tuning.sft.SFTModel'>
+  config: null
+trainer:
+  augment_pipe: null
+  batch_size_global: null
+  callbacks:
+    gpu_stats:
+      _target_: <class 'fastgen.callbacks.gpu_stats.GPUStatsCallback'>
+      every_n: '100'
+    grad_clip:
+      _target_: <class 'fastgen.callbacks.grad_clip.GradClipCallback'>
+      grad_norm: '10.0'
+      model_key: net
+    param_count:
+      _target_: <class 'fastgen.callbacks.param_count.ParamCountCallback'>
+    train_profiler:
+      _target_: <class 'fastgen.callbacks.train_profiler.TrainProfilerCallback'>
+      every_n: '100'
+    wandb:
+      _target_: <class 'fastgen.callbacks.wandb.WandbCallback'>
+      sample_logging_iter: null
+  checkpointer:
+    pretrained_ckpt_key_map:
+      net: net
+    pretrained_ckpt_path: ''
+    s3_container: s3://checkpoints/fastgen
+    s3_credential: ./credentials/s3.json
+    save_dir: /data2/NTIRE26/NTIRE2026/SR/Team16/NTIRE2026_ImageSR_x4/models/team16_APRIL-AIGC/runtime/submit_exp/submit/sr_step_explore/checkpoints
+    use_s3: 'False'
+  cudnn:
+    benchmark: 'True'
+    deterministic: 'False'
+  ddp: 'False'
+  fsdp: 'False'
+  fsdp_cpu_offload: 'False'
+  fsdp_min_num_params: '10000000'
+  fsdp_sharding_group_size: null
+  global_vars: null
+  global_vars_val:
+  - null
+  grad_accum_rounds: '1'
+  logging_iter: '500'
+  max_iter: '10000'
+  max_keep_ckpts: '2'
+  offload_module_in_decoding: 'False'
+  resume: 'True'
+  save_ckpt_iter: '500'
+  seed: '0'
+  tf32_enabled: 'True'
+  val_seed: null
+  validation_iter: '1000'
+  visualize_teacher: 'False'

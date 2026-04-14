@@ -1,0 +1,73 @@
+output_dir: save_训练时不带文本/experiment1010
+
+data_config:
+  train:
+    batch_size: 4
+    dataloader_num_workers: 16
+    dataset:
+      target: HYPIR.dataset.realesrgan.RealESRGANDataset
+      params:
+        file_meta:
+          file_list: /root/dataset/HYPIR_ours/DF2K_DIV8K_OST_FHHQ_LSDIR_Merged_nulltxt.parquet
+          image_path_prefix: ""
+          image_path_key: image_path
+          prompt_key: prompt
+        file_backend_cfg:
+          target: HYPIR.dataset.file_backend.HardDiskBackend
+        out_size: 512
+        crop_type: random
+        use_hflip: true
+        use_rot: true
+
+        # 保持不变
+        p_empty_prompt: 0.0
+
+    batch_transform:
+      target: HYPIR.dataset.batch_transform.RealESRGANBatchTransform
+      params:
+        hq_key: hq
+        extra_keys: [txt]
+
+        # ✅ 改为 4× bicubic 降采样（你代码里已改实现，这里给参数）
+        scale: 4
+        interpolation: bicubic
+        antialias: true
+
+        # ✅ 如果你希望 LQ 与 GT 同尺寸（down×4 后再 up×4 回 512），保留这个开关
+        # （你原来就有 resize_back: true，我这里仍保留这个语义）
+        resize_back: true
+
+
+base_model_type: sd2
+base_model_path: /ml-platform-auto-created-required-2100569868-ap-southeast-1/cv/panyouwei/projects/stable-diffusion-2-1-base
+model_t: 200
+coeff_t: 200
+lora_rank: 256
+lora_modules: [to_k, to_q, to_v, to_out.0, conv, conv1, conv2, conv_shortcut, conv_out, proj_in, proj_out, ff.net.2, ff.net.0.proj]
+use_ema: true
+ema_decay: 0.999
+resume_ema: true
+
+lambda_gan: 0.5
+lambda_lpips: 5
+lambda_l2: 1
+lr_G: 1e-5
+lr_D: 1e-6
+optimizer_type: adam
+opt_kwargs:
+  betas: [0.9, 0.999]
+
+mixed_precision: bf16
+seed: 231
+max_train_steps: 100000
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+max_grad_norm: 1.0
+logging_dir: logs
+report_to: tensorboard
+checkpointing_steps: 50000
+checkpoints_total_limit: 2
+resume_from_checkpoint: ~
+log_image_steps: 4000
+log_grad_steps: 4000
+log_grad_modules: [conv_out]

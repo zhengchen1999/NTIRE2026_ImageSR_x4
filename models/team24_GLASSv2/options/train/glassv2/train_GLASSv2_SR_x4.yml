@@ -1,0 +1,99 @@
+﻿name: GLASSv2_LA_SR_x2_2xA100
+model_type: GLASSv2Model
+scale: 4
+num_gpu: 2
+manual_seed: 10
+
+datasets:
+  train:
+    task: SR
+    name: DF2K
+    type: PairedImageDataset
+    dataroot_gt:
+      - /workspace/GLASS-sreenath/Dataset/LSDIR_dataset/train_HR/0001000
+    dataroot_lq:
+      - /workspace/GLASS-sreenath/Dataset/LSDIR_dataset/train_bicubic_x4/0001000
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+    
+    gt_size: 256
+    use_hflip: true
+    use_rot: true
+    use_shuffle: true
+    num_worker_per_gpu: 16
+    batch_size_per_gpu: 8
+    dataset_enlarge_ratio: 100
+    prefetch_mode: ~
+
+  val:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: /workspace/GLASS-sreenath/Dataset/test/SR/Set14/HR
+    dataroot_lq: /workspace/GLASS-sreenath/Dataset/test/SR/Set14/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+network_g:
+  type: GLASSv2
+  upscale: 4
+  in_chans: 3
+  img_size: 64
+  img_range: 1.
+  embed_dim: 180
+  d_state: 16
+  depths: [6, 6, 6, 6, 6, 6]
+  num_heads: [6, 6, 6, 6, 6, 6]
+  window_size: 16
+  inner_rank: 64
+  num_tokens: 128
+  convffn_kernel_size: 5
+  mlp_ratio: 2.
+  upsampler: 'pixelshuffle'
+  resi_connection: '1conv'
+
+path:
+  pretrain_network_g: /workspace/GLASS-sreenath/NTIRE_2026/GLASSv2_MLLA/GLASS/experiments_DIV2K/GLASSv2_LA_SR_x2_2xA100/models/net_g_215000.pth
+  strict_load_g: false
+  resume_state: ~
+
+train:
+  optim_g:
+    type: Adam
+    lr: !!float 5e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+  scheduler:
+    type: MultiStepLR
+    milestones: [34375, 55000, 61875, 65313]
+    gamma: 0.5
+  total_iter: 68750
+  warmup_iter: -1
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+
+val:
+  val_freq: !!float 5e3
+  save_img: false
+  metrics:
+    psnr:
+      type: calculate_psnr
+      crop_border: 2
+      test_y_channel: true
+
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 5e3
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+dist_params:
+  backend: nccl
+  port: 29500
+  timeout: 3600
+

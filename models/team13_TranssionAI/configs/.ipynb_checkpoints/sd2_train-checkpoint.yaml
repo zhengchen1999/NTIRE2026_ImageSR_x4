@@ -1,0 +1,104 @@
+output_dir: save/experiment1010
+
+data_config:
+  train:
+    batch_size: 4
+    dataloader_num_workers: 16
+    dataset:
+      target: HYPIR.dataset.realesrgan.RealESRGANDataset
+      params:
+        file_meta:
+          file_list: SR.parquet
+          image_path_prefix: ""
+          image_path_key: image_path
+          prompt_key: prompt
+        file_backend_cfg:
+          target: HYPIR.dataset.file_backend.HardDiskBackend
+        out_size: 512
+        crop_type: random
+        use_hflip: false
+        use_rot: false
+
+        blur_kernel_size: 21
+        kernel_list: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
+        kernel_prob: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
+        sinc_prob: 0.1
+        blur_sigma: [0.2, 3]
+        betag_range: [0.5, 4]
+        betap_range: [1, 2]
+
+        blur_kernel_size2: 21
+        kernel_list2: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
+        kernel_prob2: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
+        sinc_prob2: 0.1
+        blur_sigma2: [0.2, 1.5]
+        betag_range2: [0.5, 4]
+        betap_range2: [1, 2]
+
+        final_sinc_prob: 0.8
+
+        p_empty_prompt: 0.0
+
+    batch_transform:
+      target: HYPIR.dataset.batch_transform.RealESRGANBatchTransform
+      params:
+        hq_key: hq
+        extra_keys: [txt]
+        use_sharpener: true
+        # Queue size of training pool, this should be multiples of batch_size (per GPU).
+        queue_size: 256
+        # the first degradation process
+        resize_prob: [0.2, 0.7, 0.1] # up, down, keep
+        resize_range: [0.15, 1.5]
+        gaussian_noise_prob: 0.5
+        noise_range: [1, 30]
+        poisson_scale_range: [0.05, 3]
+        gray_noise_prob: 0.4
+        jpeg_range: [30, 95]
+
+        # the second degradation process
+        stage2_scale: 4
+        second_blur_prob: 0.8
+        resize_prob2: [0.3, 0.4, 0.3] # up, down, keep
+        resize_range2: [0.3, 1.2]
+        gaussian_noise_prob2: 0.5
+        noise_range2: [1, 25]
+        poisson_scale_range2: [0.05, 2.5]
+        gray_noise_prob2: 0.4
+        jpeg_range2: [30, 95]
+
+        resize_back: true
+
+base_model_type: sd2
+base_model_path: stabilityai/stable-diffusion-2-1-base
+model_t: 200
+coeff_t: 200
+lora_rank: 256
+lora_modules: [to_k, to_q, to_v, to_out.0, conv, conv1, conv2, conv_shortcut, conv_out, proj_in, proj_out, ff.net.2, ff.net.0.proj]
+use_ema: true
+ema_decay: 0.999
+resume_ema: true
+
+lambda_gan: 0.5
+lambda_lpips: 5
+lambda_l2: 1
+lr_G: 1e-5
+lr_D: 1e-6
+optimizer_type: adam
+opt_kwargs:
+  betas: [0.9, 0.999]
+
+mixed_precision: bf16
+seed: 231
+max_train_steps: 25000
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+max_grad_norm: 1.0
+logging_dir: logs
+report_to: tensorboard
+checkpointing_steps: 5000
+checkpoints_total_limit: 2
+resume_from_checkpoint: ~
+log_image_steps: 400
+log_grad_steps: 400
+log_grad_modules: [conv_out]
