@@ -84,17 +84,17 @@ This repository summarizes the solutions submitted by the participants during th
 |   6   |     IK-Lab      |         Saeed Ahmad          |    saeedahmad@iklab.ai          |
 |   7   |  RandomSeed42   |         Kainan Yan           | yankainan24@mails.ucas.ac.cn    |
 |   8   |    FengFans     |          Wei Zhou            |       weichow@u.nus.edu         |
-|   9   |     CIPLAB      |        Jaeseong Lee          |     jacklee95@naver.com         |
+|   9   |     CIPLAB      |        Jaeseong Lee          |  jasonlee1995@yonsei.ac.kr      |
 |  10   |      SUAT       |         Yucong Hong          |  SUAT24000175@stu.suat-sz.edu.cn|
 |  11   |      BVISR      |        Yuxuan Jiang          |      dd22654@bristol.ac.uk      |
 |  12   |     Earth4D     |         Tongyao Mu           |     muty.woodnr@gmail.com       |
 |  13   |   TranssionAI   |         Leilei Cao           |   leilei.cao@transsion.com      |
 |  14   |     AxeraAI     |       Xiaoping Peng          |  pengxiaoping@axera-tech.com    |
-|  15   |    MIPLUSCV     |         Yifei Chen           |       cyf9495@gmail.com         |
-|  16   |   cialloworld   |       Xiaoyun Cheng          |  inmtiansuo114514@163.com       |
+|  15   |    MIPLUSCV     |         Yifei Chen           |     chenyifei@xiaomi.com        |
+|  16   |   cialloworld   |       Xiaoyun Cheng          |      3142994590@qq.com          |
 |  17   |       AIT       |          Yang Ji             |      jiyang@kunbyte.com         |
 |  18   |     VAI-GM      |        Nihal Kumar           |   nihkumar@cs.stonybrook.edu    |
-|  19   |      scrlb      |       Surya Vashisth         |   prateekshaily820@gmail.com    |
+|  19   |      scrlb      |       Praful Hambarde        |     praful@iitmandi.ac.in       |
 |  20   |   APRIL-AIGC    |         Shijun Shi           |      ssj180123@gmail.com        |
 |  21   |     AH-SNU      |         Amitesh M            |   amiteshmahendran@gmail.com    |
 |  22   |     ACVLAB      |       Chia-Ming Lee          |    zuw408421476@gmail.com       |
@@ -106,7 +106,7 @@ This repository summarizes the solutions submitted by the participants during th
 |  28   |       NTR       |         Jiachen Tu           |       jtu9@illinois.edu         |
 |  29   |    NoReject     |          Yuqi Li             |    yuqili010602@gmail.com       |
 |  30   |  KLETech-CEVI   |      Nikhil Akalwadi         |  nikhil.akalwadi@kletech.ac.in  |
-|  31   |    SFVision     |         Yuwen Pan            |     panyw@mail.ustc.edu.cn      |
+|  31   |    SFVision     |         Yuwen Pan            | panyuwen@sz.tsinghua.edu.cn     |
 
 ## How to eval images using IQA metrics?
 
