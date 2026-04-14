@@ -78,36 +78,35 @@ This repository summarizes the solutions submitted by the participants during th
 |:-----:|:---------------:|:----------------------------:|:-------------------------------:|
 |   1   | SamsungAICamera |         Zheng Xie            |     zheng888.xie@samsung.com    |
 |   2   |    I2WM&JNU     |         Weijun Yuan          |   yweijun@stu2022.jnu.edu.cn    |
-|   3   |  SR-Strugglers  |        Shengwei Wang         |    wangshw35@mail2.sysu.edu.cn  |
-|   4   |     IK-Lab      |         Saeed Ahmad          |    saeedahmad@iklab.ai          |
-|   5   |    FengFans     |          Wei Zhou            |       weichow@u.nus.edu         |
-|   6   |      SUAT       |         Yucong Hong          |  SUAT24000175@stu.suat-sz.edu.cn|
-|   7   |     Earth4D     |         Tongyao Mu           |     muty.woodnr@gmail.com       |
-|   8   |     AxeraAI     |       Xiaoping Peng          |  pengxiaoping@axera-tech.com    |
-|   9   |   cialloworld   |       Xiaoyun Cheng          |  inmtiansuo114514@163.com       |
-|  10   |     VAI-GM      |        Nihal Kumar           |   nihkumar@cs.stonybrook.edu    |
-|  11   |      scrlb      |       Surya Vashisth         |   prateekshaily820@gmail.com    |
-|  12   |     AH-SNU      |         Amitesh M            |   amiteshmahendran@gmail.com    |
-|  13   |     ACVLAB      |       Chia-Ming Lee          |    zuw408421476@gmail.com       |
-|  14   |     GLASSv2     |        Nishalini K           | nishalinikarthik17@gmail.com    |
-|  15   |       PSU       |        Anas M. Ali           |     aaboessa@psu.edu.sa         |
-|  16   |     JNU620      |       Shuling Zheng          | zhengshuling@stu2025.jnu.edu.cn |
-|  17   |     AIMLAB      |       Zhipeng Zhang          | zhangzhipeng22@mails.ucas.ac.cn |
-|  18   |       NTR       |         Jiachen Tu           |       jtu9@illinois.edu         |
-|  19   |  Anant_SVNIT    |       Nikhil Pathak          |   u24ec012@eced.svnit.ac.in     |
-|  20   |    NoReject     |          Yuqi Li             |    yuqili010602@gmail.com       |
-|  21   |  KLETech-CEVI   |      Nikhil Akalwadi         |  nikhil.akalwadi@kletech.ac.in  |
-|  22   |    SFVision     |         Yuwen Pan            |     panyw@mail.ustc.edu.cn      |
-|  23   |   APRIL-AIGC    |         Shijun Shi           |      ssj180123@gmail.com        |
-|  24   | HONORAICamera   |        Yingsi Chen           |    chenyingsi@honor.com         |
-|  25   |      VEPG       |       Fengkai Zhang          |   fengkaizhang@njust.edu.cn     |
-|  26   |  RandomSeed42   |         Kainan Yan           | yankainan24@mails.ucas.ac.cn    |
-|  27   |   TranssionAI   |         Leilei Cao           |   leilei.cao@transsion.com      |
-|  28   |      BVISR      |        Yuxuan Jiang          |      dd22654@bristol.ac.uk      |
-|  29   |    MIPLUSCV     |         Yifei Chen           |       cyf9495@gmail.com         |
-|  30   |       AIT       |          Yang Ji             |      jiyang@kunbyte.com         |
-|  31   |     CIPLAB      |        Jaeseong Lee          |     jacklee95@naver.com         |
-
+|   3   |      VEPG       |       Fengkai Zhang          |   fengkaizhang@njust.edu.cn     |
+|   4   |  SR-Strugglers  |        Shengwei Wang         |    wangshw35@mail2.sysu.edu.cn  |
+|   5   | HONORAICamera   |        Yingsi Chen           |    chenyingsi@honor.com         |
+|   6   |     IK-Lab      |         Saeed Ahmad          |    saeedahmad@iklab.ai          |
+|   7   |  RandomSeed42   |         Kainan Yan           | yankainan24@mails.ucas.ac.cn    |
+|   8   |    FengFans     |          Wei Zhou            |       weichow@u.nus.edu         |
+|   9   |     CIPLAB      |        Jaeseong Lee          |     jacklee95@naver.com         |
+|  10   |      SUAT       |         Yucong Hong          |  SUAT24000175@stu.suat-sz.edu.cn|
+|  11   |      BVISR      |        Yuxuan Jiang          |      dd22654@bristol.ac.uk      |
+|  12   |     Earth4D     |         Tongyao Mu           |     muty.woodnr@gmail.com       |
+|  13   |   TranssionAI   |         Leilei Cao           |   leilei.cao@transsion.com      |
+|  14   |     AxeraAI     |       Xiaoping Peng          |  pengxiaoping@axera-tech.com    |
+|  15   |    MIPLUSCV     |         Yifei Chen           |       cyf9495@gmail.com         |
+|  16   |   cialloworld   |       Xiaoyun Cheng          |  inmtiansuo114514@163.com       |
+|  17   |       AIT       |          Yang Ji             |      jiyang@kunbyte.com         |
+|  18   |     VAI-GM      |        Nihal Kumar           |   nihkumar@cs.stonybrook.edu    |
+|  19   |      scrlb      |       Surya Vashisth         |   prateekshaily820@gmail.com    |
+|  20   |   APRIL-AIGC    |         Shijun Shi           |      ssj180123@gmail.com        |
+|  21   |     AH-SNU      |         Amitesh M            |   amiteshmahendran@gmail.com    |
+|  22   |     ACVLAB      |       Chia-Ming Lee          |    zuw408421476@gmail.com       |
+|  23   |     GLASSv2     |        Nishalini K           | nishalinikarthik17@gmail.com    |
+|  24   |       PSU       |        Anas M. Ali           |     aaboessa@psu.edu.sa         |
+|  25   |     JNU620      |       Shuling Zheng          | zhengshuling@stu2025.jnu.edu.cn |
+|  26   |  Anant_SVNIT    |       Nikhil Pathak          |   u24ec012@eced.svnit.ac.in     |
+|  27   |     AIMLAB      |       Zhipeng Zhang          | zhangzhipeng22@mails.ucas.ac.cn |
+|  28   |       NTR       |         Jiachen Tu           |       jtu9@illinois.edu         |
+|  29   |    NoReject     |          Yuqi Li             |    yuqili010602@gmail.com       |
+|  30   |  KLETech-CEVI   |      Nikhil Akalwadi         |  nikhil.akalwadi@kletech.ac.in  |
+|  31   |    SFVision     |         Yuwen Pan            |     panyw@mail.ustc.edu.cn      |
 
 ## How to eval images using IQA metrics?
 
