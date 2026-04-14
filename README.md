@@ -87,14 +87,14 @@ This repository summarizes the solutions submitted by the participants during th
 |   9   |   cialloworld   |       Xiaoyun Cheng          |  inmtiansuo114514@163.com       |
 |  10   |     VAI-GM      |        Nihal Kumar           |   nihkumar@cs.stonybrook.edu    |
 |  11   |      scrlb      |       Surya Vashisth         |   prateekshaily820@gmail.com    |
-|  12   |   APRIL-AIGC    |         Shijun Shi           |      ssj180123@gmail.com        |
-|  13   |     AH-SNU      |         Amitesh M            |   amiteshmahendran@gmail.com    |
-|  14   |     ACVLAB      |       Chia-Ming Lee          |    zuw408421476@gmail.com       |
-|  15   |     GLASSv2     |        Nishalini K           | nishalinikarthik17@gmail.com    |
-|  16   |       PSU       |        Anas M. Ali           |     aaboessa@psu.edu.sa         |
-|  17   |     JNU620      |       Shuling Zheng          | zhengshuling@stu2025.jnu.edu.cn |
-|  18   |     AIMLAB      |       Zhipeng Zhang          | zhangzhipeng22@mails.ucas.ac.cn |
-|  19   |       NTR       |         Jiachen Tu           |       jtu9@illinois.edu         |
+|  12   |     AH-SNU      |         Amitesh M            |   amiteshmahendran@gmail.com    |
+|  13   |     ACVLAB      |       Chia-Ming Lee          |    zuw408421476@gmail.com       |
+|  14   |     GLASSv2     |        Nishalini K           | nishalinikarthik17@gmail.com    |
+|  15   |       PSU       |        Anas M. Ali           |     aaboessa@psu.edu.sa         |
+|  16   |     JNU620      |       Shuling Zheng          | zhengshuling@stu2025.jnu.edu.cn |
+|  17   |     AIMLAB      |       Zhipeng Zhang          | zhangzhipeng22@mails.ucas.ac.cn |
+|  18   |       NTR       |         Jiachen Tu           |       jtu9@illinois.edu         |
+|  19   |  Anant_SVNIT    |       Nikhil Pathak          |   u24ec012@eced.svnit.ac.in     |
 |  20   |    NoReject     |          Yuqi Li             |    yuqili010602@gmail.com       |
 |  21   |  KLETech-CEVI   |      Nikhil Akalwadi         |  nikhil.akalwadi@kletech.ac.in  |
 |  22   |    SFVision     |         Yuwen Pan            |     panyw@mail.ustc.edu.cn      |
@@ -107,7 +107,7 @@ This repository summarizes the solutions submitted by the participants during th
 |  29   |    MIPLUSCV     |         Yifei Chen           |       cyf9495@gmail.com         |
 |  30   |       AIT       |          Yang Ji             |      jiyang@kunbyte.com         |
 |  31   |     CIPLAB      |        Jaeseong Lee          |     jacklee95@naver.com         |
-|  32   |  Anant_SVNIT    |       Nikhil Pathak          |   u24ec012@eced.svnit.ac.in     |
+
 
 ## How to eval images using IQA metrics?
 
