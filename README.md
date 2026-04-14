@@ -4,7 +4,7 @@
 [![page](https://img.shields.io/badge/Project-Page-blue?logo=github&logoSvg)](https://ntire-sr.github.io/2026)
 [![CVPRW](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Fzhengchen1999%2FNTIRE2026_ImageSR_x4%2Fmain%2Ffigs%2Fcvf_badge.json)](https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Chen_NTIRE_2026_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2026_paper.html)
 [![arXiv](https://img.shields.io/badge/Report-arXiv-red?logo=arxiv&logoSvg)](https://arxiv.org/abs/2504.xxxxx)
-[![supp](https://img.shields.io/badge/Supplementary-Paper-orange.svg)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4/releases/download/Supp/NTIRE.2026.Image.Super.Resolution.x4.Supplementary.pdf)
+[![supp](https://img.shields.io/badge/Supplementary-Paper-orange.svg)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4/releases/tag/v1)
 [![visitors](https://visitor-badge.laobi.icu/badge?page_id=zhengchen1999.NTIRE2026_ImageSR_x4&right_color=violet)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4)
 [![GitHub Stars](https://img.shields.io/github/stars/zhengchen1999/NTIRE2026_ImageSR_x4?style=social)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4)
 
@@ -169,10 +169,10 @@ The score is calculated on the averaged IQA scores.
 
 Code repositories and accompanying technical report PDFs for each edition:  
 
-- **NTIRE 2026**: [CODE](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4) | [PDF](https://arxiv.org/abs/2504.xxxxx)  
-- **NTIRE 2025**: [CODE](https://github.com/zhengchen1999/NTIRE2025_ImageSR_x4) | [PDF](https://arxiv.org/pdf/2504.14582)  
-- **NTIRE 2024**: [CODE](https://github.com/zhengchen1999/NTIRE2024_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Chen_NTIRE_2024_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2024_paper.pdf)  
-- **NTIRE 2023**: [CODE](https://github.com/zhengchen1999/NTIRE2023_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/papers/Zhang_NTIRE_2023_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2023_paper.pdf)
+- **The 4th Edition: NTIRE 2026**: [CODE](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4) | [PDF](https://arxiv.org/abs/2504.xxxxx)  
+- **The 3rd Edition: NTIRE 2025**: [CODE](https://github.com/zhengchen1999/NTIRE2025_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2025W/NTIRE/papers/Chen_NTIRE_2025_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2025_paper.pdf)  
+- **The 2nd Edition: NTIRE 2024**: [CODE](https://github.com/zhengchen1999/NTIRE2024_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Chen_NTIRE_2024_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2024_paper.pdf)  
+- **The 1st Edition: NTIRE 2023**: [CODE](https://github.com/zhengchen1999/NTIRE2023_ImageSR_x4) | [PDF](https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/papers/Zhang_NTIRE_2023_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2023_paper.pdf)
 
 ## Citation
 
