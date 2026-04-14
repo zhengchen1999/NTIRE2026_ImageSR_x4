@@ -66,13 +66,7 @@ This repository summarizes the solutions submitted by the participants during th
     ```
     - You can use either `--valid_dir`, or `--test_dir`, or both of them. Be sure the change the directories `--valid_dir`/`--test_dir` and `--save_dir`.
     - We provide a baseline (team00): DAT (default). Switch models (default is DAT) through commenting the code in [test.py](./test.py#L19).
-4. We also provide the output of each team from:
-
-    - [Baidu Pan](https://pan.baidu.com/s/xxxxxx?pwd=SRSR) (validation code: **SRSR**)
-    - [Google Drive](https://drive.google.com/drive/folders/xxxxx?usp=drive_link)
-
-    You can directly download the output of each team and evaluate the model using the provided script.
-5. Some methods cannot be integrated into our codebase. We provide their instructions in the corresponding folder. If you still fail to test the model, please contact the team leaders. Their contact information is as follows:
+4. Some methods cannot be integrated into our codebase. We provide their instructions in the corresponding folder. If you still fail to test the model, please contact the team leaders. Their contact information is as follows:
 
 | Index |       Team      |            Leader            |              Email              |
 |:-----:|:---------------:|:----------------------------:|:-------------------------------:|
