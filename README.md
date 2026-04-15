@@ -56,8 +56,7 @@ This repository summarizes the solutions submitted by the participants during th
 1. `git clone https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4.git`
 2. Download the model weights from:
 
-    - [Baidu Pan](https://pan.baidu.com/s/xxxxxx?pwd=SRSR) (validation code: **SRSR**)
-    - [Google Drive](https://drive.google.com/drive/folders/xxxxx?usp=drive_link)
+    - [Baidu Pan](https://pan.baidu.com/s/1dMxe98mkkzE80E4w218DQw?pwd=SRSR) (validation code: **SRSR**)
 
     Put the downloaded weights in the `./model_zoo` folder.
 3. Select the model you would like to test:
