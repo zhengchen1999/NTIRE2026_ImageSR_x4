@@ -3,7 +3,7 @@
 [![ntire](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Fzhengchen1999%2FNTIRE2026_ImageSR_x4%2Fmain%2Ffigs%2Fdiamond_badge.json)](https://www.cvlai.net/ntire/2026/)
 [![page](https://img.shields.io/badge/Project-Page-blue?logo=github&logoSvg)](https://ntire-sr.github.io/2026)
 [![CVPRW](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Fzhengchen1999%2FNTIRE2026_ImageSR_x4%2Fmain%2Ffigs%2Fcvf_badge.json)](https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Chen_NTIRE_2026_Challenge_on_Image_Super-Resolution_x4_Methods_and_Results_CVPRW_2026_paper.html)
-[![arXiv](https://img.shields.io/badge/Report-arXiv-red?logo=arxiv&logoSvg)](https://arxiv.org/abs/2504.xxxxx)
+[![arXiv](https://img.shields.io/badge/Report-arXiv-red?logo=arxiv&logoSvg)](https://arxiv.org/abs/2604.14558)
 [![supp](https://img.shields.io/badge/Supplementary-Paper-orange.svg)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4/releases/tag/v1)
 [![visitors](https://visitor-badge.laobi.icu/badge?page_id=zhengchen1999.NTIRE2026_ImageSR_x4&right_color=violet)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4)
 [![GitHub Stars](https://img.shields.io/github/stars/zhengchen1999/NTIRE2026_ImageSR_x4?style=social)](https://github.com/zhengchen1999/NTIRE2026_ImageSR_x4)
