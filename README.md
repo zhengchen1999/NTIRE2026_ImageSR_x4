@@ -171,7 +171,7 @@ Code repositories and accompanying technical report PDFs for each edition:
 
 If you find the code helpful in your research or work, please cite the following paper(s).
 
-```
+```latex
 @inproceedings{ntire2023srx4,
   title={NTIRE 2023 challenge on image super-resolution (x4): Methods and results},
   author={Zhang, Yulun and Zhang, Kai and Chen, Zheng and Li, Yawei and Timofte, Radu and others},
@@ -194,7 +194,7 @@ If you find the code helpful in your research or work, please cite the following
 }
 
 @inproceedings{ntire2026srx4,
-  title={NTIRE 2026 Challenge on Image Super-Resolution (x4): Methods and Results},
+  title={The Fourth Challenge on Image Super-Resolution (×4) at NTIRE 2026: Benchmark Results and Method Overview},
   author={Chen, Zheng and Liu, Kai and Wang, Jingkai and Yan, Xianglong and Li, Jianze and Zhang, Ziqing and Gong, Jue and Li, Jiatong and Sun, Lei and Liu, Xiaoyang and Timofte, Radu and Zhang, Yulun and others},
   booktitle={CVPRW},
   year={2026}
