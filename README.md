@@ -45,7 +45,7 @@ The top three teams by Perceptual Score have received **NTIRE 2026 Image SR (×4
 2. VEPG  
 3. HONORAICamera  
 
-All certificates can be downloaded from [Google Drive](https://drive.google.com/file/d/xxxxx/view?usp=sharing).
+All certificates can be downloaded from [Google Drive](https://drive.google.com/file/d/1uyfHvijsrUfgChHepesBi00Shwxb2tlw/view?usp=sharing).
 
 ## About this repository
 
