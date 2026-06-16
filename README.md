@@ -194,7 +194,7 @@ If you find the code helpful in your research or work, please cite the following
 }
 
 @inproceedings{ntire2026srx4,
-  title={The Fourth Challenge on Image Super-Resolution (×4) at NTIRE 2026: Benchmark Results and Method Overview},
+  title={The Fourth Challenge on Image Super-Resolution (x4) at NTIRE 2026: Benchmark Results and Method Overview},
   author={Chen, Zheng and Liu, Kai and Wang, Jingkai and Yan, Xianglong and Li, Jianze and Zhang, Ziqing and Gong, Jue and Li, Jiatong and Sun, Lei and Liu, Xiaoyang and Timofte, Radu and Zhang, Yulun and others},
   booktitle={CVPRW},
   year={2026}
